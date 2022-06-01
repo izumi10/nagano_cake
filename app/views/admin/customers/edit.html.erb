@@ -1,0 +1,48 @@
+<p id ="notice"></p>
+    <div class="container px-5 px-sm-0">
+     <div class="row">
+      <div class="col-md-3">
+
+         <%= form_with model: @customer, url: admin_update_customer_path, method :PATCH do |f| %>
+
+         <p>会員ID</p>
+         <%= link_to f.id %>
+
+          <div class="field">
+      　　  <%= f.label :"氏名" %>
+       　　　 <%= f.text_field :last_name %> <%= f.text_field :first_name %>
+      　　</div>
+
+       　 　<div class="field">
+       　 　  <%= f.label :"フリガナ" %>
+       　 　  <%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana %>
+       　 　</div>
+
+            <div class="field">
+              <%= f.label :"メールアドレス" %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <div class="field">
+             <%= f.label :"郵便番号（ハイフンなし）" %>
+             <%= f.text_field :postal_cade, autofocus:true, autocomplete:"postal_cade" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :"住所" %>
+              <%= f.text_field :addres, autofocus:true, autocomplete:"addres" %>
+            </div>
+
+            <div class="field" >
+              <%= f.label :"電話番号（ハイフンなし）" %>
+              <%= f.text_field :telephone_number, autofocus:true, autocomplete:"telephone_number" %>
+            </div>
+
+            <% end %>
+
+           <%= f.submit '変更を保存', edit_admin_customer_path(@customer.id) class: "btn btn-success",  %>
+
+
+      </div>
+   </div>
+ </div>

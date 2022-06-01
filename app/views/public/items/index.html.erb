@@ -1,0 +1,29 @@
+<p id ="notice"></p>
+    <div class="container px-5 px-sm-0">
+     <div class="row">
+
+
+        <div class="col-md-15 offset-md-1">
+        <h3> 商品一覧 </h3>
+        <% @items.each do |item| %>
+        <table align="left">
+
+        <tr>
+        <th><% if item.item_image.attached? %>
+            <%= image_tag item.item_image, size: "300x300" %>
+            <% else %>
+            <%= image_tag 'no_image', size: "300x300" %>
+            <% end %>
+         </th>
+         </tr>
+
+        <tr><th><%=link_to item.item_name, public_item_path(item.id) %></th></tr>
+        <tr><th><%= item.add_tax_price.to_s(:delimited)  %></th></tr>
+
+        <% end %>
+        </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
